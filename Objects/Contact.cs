@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AddressBook.Objects;
 
 namespace AddressBook.Objects
 {
@@ -13,7 +14,8 @@ namespace AddressBook.Objects
 
     private static List<Contact> _instances = new List<Contact> {};
 
-    public Contact(string newFirstName, string newLastName, string newPhoneNumber, Address newAddress = new Address("street address","city","state","zip code"))
+
+    public Contact(string newFirstName, string newLastName, string newPhoneNumber, Address newAddress)
     {
       _firstName = newFirstName;
       _lastName = newLastName;
@@ -69,7 +71,7 @@ namespace AddressBook.Objects
       return _instances;
     }
 
-    public static int FindById(int searchId)
+    public static Contact FindById(int searchId)
     {
       return _instances[searchId -1];
     }

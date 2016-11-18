@@ -15,7 +15,7 @@
       {
         @foreach(var contact in Model)
         {
-          @var contactAdress = @contact.GetAddress()
+          @{ var contactAddress = @contact.GetAddress(); }
 
           <h4>@contact.GetFirstName() @contact.GetLastName()</h4>
           <p>

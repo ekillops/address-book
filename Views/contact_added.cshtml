@@ -20,7 +20,7 @@
       </p>
       <p>
         <span class="contact-label">Address:</span><br>
-        @{var contactAddress = @Model.GetAddress()}
+        @{ var contactAddress = @Model.GetAddress(); }
         @contactAddress.GetStreetAddress()<br>
         @contactAddress.GetCity()<br>
         @contactAddress.GetState()<br>

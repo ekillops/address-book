@@ -16,7 +16,7 @@
         <ul>
           @foreach(var contact in Model)
           {
-            <li><a href="/contacts/@contact.GetId()">@contact.GetFirstName @contact.GetLastName()</a></li>
+            <li><a href="/contacts/@contact.GetId()">@contact.GetFirstName() @contact.GetLastName()</a></li>
           }
         </ul>
         <form action="/" method="post">

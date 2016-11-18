@@ -24,7 +24,7 @@ namespace AddressBook
         string inputAddressStreet = Request.Form["address-street"];
         string inputAddressCity = Request.Form["address-city"];
         string inputAddressState = Request.Form["address-state"];
-        string inputAddressZip = Request.Form["address-zip"];
+        int inputAddressZip = int.Parse(Request.Form["address-zip"]);
 
         Address newContactAddress = new Address(inputAddressStreet, inputAddressCity, inputAddressState, inputAddressZip);
         Contact newContact = new Contact(inputFirstName, inputLastName, inputPhoneNumber, newContactAddress);
