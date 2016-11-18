@@ -37,12 +37,19 @@ namespace AddressBook
       };
       Get["/contacts/all"] = _ => {
         List<Contact> allContacts = Contact.GetAll();
-        return View["all_contacts.cshtml", allContacts];
+        return View["contacts_all.cshtml", allContacts];
       };
       Post["/"] = _ => {
         Contact.ClearAll();
         List<Contact> allContacts = Contact.GetAll();
         return View["index.cshtml", allContacts];
+      };
+      Post["/contacts/deleted"] = _ => {
+        int targetId = int.Parse(Request.Form["delete"]);
+        Contact selectedContact = Contact.FindById(targetId);
+        selectedContact.DeleteContact();
+        Contact.ResetIds();
+        return View["contact_removed.cshtml"];
       };
     }
   }

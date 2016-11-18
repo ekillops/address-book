@@ -11,23 +11,7 @@
       <div class="page-header">
         <h1>Address Book</h1>
       </div>
-      @if (@Model.Count != 0)
-      {
-        <ul>
-          @foreach(var contact in Model)
-          {
-            <li><a href="/contacts/@contact.GetId()">@contact.GetFirstName() @contact.GetLastName()</a></li>
-          }
-        </ul>
-        <form action="/" method="post">
-          <button class="btn btn-danger btn-xs" type="submit" name="clear">Clear Contacts</button>
-        </form>
-      }
-      else
-      {
-        <p>You have no contacts to display. Please click the link at the bottom of the page to add a contact.</p>
-      }
-
+      <p>Your contact has been removed from the address book.</p>
       <div class="bottom-line">
       </div>
       <p><a href="/">Home</a> <a href="/contacts/new">Add Contact</a> <a href="/contacts/all">All Contacts</a></p>

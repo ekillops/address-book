@@ -75,5 +75,17 @@ namespace AddressBook.Objects
     {
       return _instances[searchId -1];
     }
+
+    public void DeleteContact()
+    {
+      _instances.Remove(this);
+    }
+    // Method to reset contact ids to match list index after contacts have been deleted
+    public static void ResetIds()
+    {
+      foreach (Contact contact in _instances) {
+        contact._id = _instances.IndexOf(contact);
+      }
+    }
   }
 }
