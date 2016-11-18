@@ -18,10 +18,13 @@ _This website should:_
 4. _Display a list of stored contacts on the homepage_
 5. _Allow user to clear contacts_
 6. _Allow user to delete and individual contact_
+7. _Allow user to search contacts by name_
 
 ## Setup/Installation Requirements
 
- _Clone the repository, from the project folder in PowerShell run ">dnx kestrel" and visit http://localhost:5004_
+_Requires Windows_
+
+_Clone the repository, from the project folder in PowerShell run ">dnx kestrel" and visit http://localhost:5004_
 
 ## Known Bugs
 
