@@ -14,20 +14,21 @@
       <p>Your contact has been added to the address book.</p>
       <p>
         <span class="contact-label">Name:</span><br>
-        @Model["contact"].GetFirstName() @Model.GetLastName()<br>
+        @Model.GetFirstName() @Model.GetLastName()<br>
         <span class="contact-label">Phone Number</span><br>
-        @Model["contact"].GetPhoneNumber()<br>
+        @Model.GetPhoneNumber()<br>
       </p>
       <p>
         <span class="contact-label">Address:</span><br>
-        @Model["address"].GetStreetAddress()<br>
-        @Model["address"].GetCity()<br>
-        @Model["address"].GetState()<br>
-        @Model["address"].GetZipCode()
+        @{var contactAddress = @Model.GetAddress()}
+        @contactAddress.GetStreetAddress()<br>
+        @contactAddress.GetCity()<br>
+        @contactAddress.GetState()<br>
+        @contactAddress.GetZipCode()
       </p>
       <div class="bottom-line">
       </div>
-      <p><a href="/">Home</a> <a href="/contact/new">Add Contact</a></p>
+      <p><a href="/">Home</a> <a href="/contacts/new">Add Contact</a> <a href="/contacts/all">All Contacts</a></p>
     </div>
   </body>
 </html>

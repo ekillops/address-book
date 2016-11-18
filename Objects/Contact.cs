@@ -64,5 +64,10 @@ namespace AddressBook.Objects
     {
       return _instances;
     }
+
+    public static int FindById(int searchId)
+    {
+      return _instances[searchId -1];
+    }
   }
 }
