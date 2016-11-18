@@ -60,6 +60,10 @@ namespace AddressBook.Objects
       return _address;
     }
 
+    public static void ClearAll()
+    {
+      _instances.Clear();
+    }
     public static List<Contact> GetAll()
     {
       return _instances;

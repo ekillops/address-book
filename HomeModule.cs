@@ -10,12 +10,13 @@ namespace AddressBook
     public HomeModule()
     {
       Get["/"] = _ => {
-        return View["index.cshtml"];
+        List<Contact> allContacts = Contact.GetAll();
+        return View["index.cshtml", allContacts];
       };
       Get["/contacts/new"] = _ => {
         return View["new_contact_form.cshtml"];
       };
-      Post["/contact/added"] = _ => {
+      Post["/contacts/added"] = _ => {
         string inputFirstName = Request.Form["name-first"];
         string inputLastName = Request.Form["name-last"];
         string inputPhoneNumber = Request.Form["phone-number"];
@@ -29,6 +30,19 @@ namespace AddressBook
         Contact newContact = new Contact(inputFirstName, inputLastName, inputPhoneNumber, newContactAddress);
 
         return View["contact_added.cshtml", newContact];
+      };
+      Get["/contacts/{id}"] = parameters => {
+        Contact selectedContact = Contact.FindById(parameters.id);
+        return View["contact.cshtml", selectedContact];
+      };
+      Get["/contacts/all"] = _ => {
+        List<Contact> allContacts = Contact.GetAll();
+        return View["all_contacts.cshtml", allContacts];
+      };
+      Post["/"] = _ => {
+        Contact.ClearAll();
+        List<Contact> allContacts = Contact.GetAll();
+        return View["index.cshtml", allContacts];
       };
     }
   }
