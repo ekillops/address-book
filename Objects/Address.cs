@@ -7,10 +7,10 @@ namespace AddressBook.Objects
     private string _streetAddress;
     private string _city;
     private string _state;
-    private int _zipCode;
+    private string _zipCode;
     private string _type;
 
-    public Address(string newStreetAddress = "Street Address", string newCity = "City", string newState = "State", int newZip = 00000, string newType = "Home")
+    public Address(string newStreetAddress = "Street Address", string newCity = "City", string newState = "State", string newZip = "00000", string newType = "Home")
     {
       _streetAddress = newStreetAddress;
       _city = newCity;
@@ -47,11 +47,11 @@ namespace AddressBook.Objects
       return _state;
     }
 
-    public void SetZipCode(int newZip)
+    public void SetZipCode(string newZip)
     {
       _zipCode = newZip;
     }
-    public int GetZipCode()
+    public string GetZipCode()
     {
       return _zipCode;
     }

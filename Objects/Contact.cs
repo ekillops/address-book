@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AddressBook.Objects;
 
@@ -84,8 +85,22 @@ namespace AddressBook.Objects
     public static void ResetIds()
     {
       foreach (Contact contact in _instances) {
-        contact._id = _instances.IndexOf(contact);
+        contact._id = _instances.IndexOf(contact) + 1;
       }
+    }
+
+    public static List<Contact> SearchFor(string searchString)
+    {
+      string searchStringLower = searchString.ToLower();
+      List<Contact> outputList = new List<Contact> {};
+      foreach (Contact contact in _instances) {
+        string fullName = contact.GetFirstName() + " " + contact.GetLastName();
+        if (fullName.Contains(searchStringLower))
+        {
+          outputList.Add(contact);
+        }
+      }
+      return outputList;
     }
   }
 }

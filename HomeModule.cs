@@ -24,7 +24,7 @@ namespace AddressBook
         string inputAddressStreet = Request.Form["address-street"];
         string inputAddressCity = Request.Form["address-city"];
         string inputAddressState = Request.Form["address-state"];
-        int inputAddressZip = int.Parse(Request.Form["address-zip"]);
+        string inputAddressZip = Request.Form["address-zip"];
 
         Address newContactAddress = new Address(inputAddressStreet, inputAddressCity, inputAddressState, inputAddressZip);
         Contact newContact = new Contact(inputFirstName, inputLastName, inputPhoneNumber, newContactAddress);
@@ -50,6 +50,15 @@ namespace AddressBook
         selectedContact.DeleteContact();
         Contact.ResetIds();
         return View["contact_removed.cshtml"];
+      };
+      Get["contacts/search"] = _ => {
+        return View["contacts_search.cshtml"];
+      };
+      Post["contacts/search"] = _ => {
+        string searchInput = Request.Form["search-input"];
+        string searchInputLower = searchInput.ToLower();
+        List<Contact> searchResults = Contact.SearchFor(searchInputLower);
+        return View["search_results.cshtml", searchResults];
       };
     }
   }
