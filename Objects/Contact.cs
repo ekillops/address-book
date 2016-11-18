@@ -55,6 +55,11 @@ namespace AddressBook.Objects
       return _id;
     }
 
+    public Address GetAddress()
+    {
+      return _address;
+    }
+
     public static List<Contact> GetAll()
     {
       return _instances;
