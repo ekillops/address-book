@@ -95,7 +95,8 @@ namespace AddressBook.Objects
       List<Contact> outputList = new List<Contact> {};
       foreach (Contact contact in _instances) {
         string fullName = contact.GetFirstName() + " " + contact.GetLastName();
-        if (fullName.Contains(searchStringLower))
+        string fullNameLower = fullName.ToLower();
+        if (fullNameLower.Contains(searchStringLower))
         {
           outputList.Add(contact);
         }

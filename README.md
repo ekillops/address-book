@@ -14,11 +14,10 @@ _This website should:_
 
 1. _Take user input for a contact_
 2. _Store contacts_
-3. _Calculate price based on size_
-4. _Display a list of stored contacts on the homepage_
-5. _Allow user to clear contacts_
-6. _Allow user to delete and individual contact_
-7. _Allow user to search contacts by name_
+3. _Display a list of stored contacts on the homepage_
+4. _Allow user to clear contacts_
+5. _Allow user to delete and individual contact_
+6. _Allow user to search contacts by name_
 
 ## Setup/Installation Requirements
 

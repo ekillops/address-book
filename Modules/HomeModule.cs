@@ -54,8 +54,8 @@ namespace AddressBook
       Get["contacts/search"] = _ => {
         return View["contacts_search.cshtml"];
       };
-      Post["contacts/search"] = _ => {
-        string searchInput = Request.Form["search-input"];
+      Get["contacts/search-results"] = _ => {
+        string searchInput = Request.Query["search-input"];
         string searchInputLower = searchInput.ToLower();
         List<Contact> searchResults = Contact.SearchFor(searchInputLower);
         return View["search_results.cshtml", searchResults];
